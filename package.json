@@ -1,0 +1,38 @@
+{
+  "name": "flashy_team_prize",
+  "version": "1.0.0",
+  "engines": {
+    "npm": "3.10.10"
+  },
+  "description": "flashy",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
+    "materialize-css": "^0.100.2",
+    "method-override": "^2.3.9",
+    "mysql": "^2.14.1",
+    "mysql2": "^1.4.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaveLaid/flashy_team_prize.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaveLaid/flashy_team_prize/issues"
+  },
+  "homepage": "https://github.com/DaveLaid/flashy_team_prize#readme"
+}

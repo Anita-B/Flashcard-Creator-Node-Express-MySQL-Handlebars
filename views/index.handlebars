@@ -1,0 +1,168 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+
+   <!-- start finder_create -->
+    <div id="finder_create" class="row center">
+      <br>
+
+     <!-- create flashcards -->
+      <div class="col s12 m6">
+        <a href="/login" id="create-button" class="left btn-large">Create Flashcards!</a>
+      </div>
+
+     <!-- search flashcards -->
+      <div class="col s12 m6  find-flashcards">
+
+       <div class="col s2" style="height: 3rem;line-height:4rem;">
+          <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        </div>
+
+       <form class="col s10">
+          <div class="input-field">
+            <input placeholder="Find Flashcards!" id="first_name" type="text" class="validate">
+          </div>
+            <!-- input type="submit" value="Submit" -->
+        </form>
+
+     </div>
+
+   </div>
+    <!-- end finder_create -->
+
+   <!-- start my_cards -->
+    <div id="my_cards" class="row center">
+
+
+      {{#if mysets}}
+      <div class="divider"></div>
+      <h5>My Cards!</h5>
+      <br>
+      {{/if}}
+
+      {{#each mysets}}
+      <div href="/api/{{this.id}}" class="section col s12 m4">
+          <div class="card-panel teal">
+            <span id="{{id}}" href="/api/{{this.id}}" data-target="#{{this.id}}" class="modal-trigger white-text">{{ this.title }}</span>
+          </div>
+      </div>
+
+
+  
+      <!-- Modal Flashcard Deck Structure -->
+          <div id="modal1" class="modal">
+            <div id="{{this.id}}" class="modal-content">
+
+             <h5>Flashcard Title</h5>
+              <p>Author</p>
+
+             <div class="row modal-row content-card">
+                <p id="modal-question"></p>
+                <p id="modal-answer"></p>
+                <!-- front / back / both sides of card appear here -->
+              </div>
+
+             <div class="row modal-row controls-card">
+                <div id="prevBtn" class="col s4 previous"><a href="#" value="previous-card" class="btn">PREVIOUS</a></div>
+                <div id="flipBtn" class="col s4 flip"><a href="#" value="flip-card" class="btn">FLIP</a></div>
+                <div id="nextBtn" class="col s4 next"><a href="#" value="next-card" class="btn">NEXT</a></div>
+              </div>
+
+             <div class="row modal-row share-card">
+                <button id="shareBtn" class="col s12 btn" type="submit" value="share-card" name="share-card">Share Flashcards</button>
+                <!-- <a href="#" value="share-card" class="waves-effect waves-light btn">Share Flashcards!</a> -->
+              </div>
+
+           </div> <!-- end modal content -->
+          </div> <!-- end play-flashcards modal -->
+
+      {{/each}}
+
+
+   </div>
+    <!-- end my_cards -->
+
+
+
+
+
+   <!-- start browse_subjects -->
+    <div id="browse_subjects" class="row center ">
+
+     <div class="divider"></div>
+      <h5>Browse Subjects!</h5>
+
+     <br>
+
+     {{#each cats}}
+      <div class="section col s12 m4">
+        <a href="/category/{{this.cat_name}}"><div  class="card-panel teal">
+          <span id="{{this.cat_name}}" value="{{this.cat_name}}" class="white-text">{{ this.cat_name }}</span>
+        </div></a>
+      </div>
+      {{/each}}
+
+   </div>
+    <!-- end browse_subjects -->
+
+   <br><br>
+
+ </div> <!-- end container -->
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+<script src="/js/init.js"></script>
+
+<script type="text/javascript">
+  //need to initialize all modals!!!
+  // $('.modal').modal();
+
+
+ $(document).on("click", ".modal-trigger", function() {
+
+  var setId = $(this).attr("id");
+
+  $.ajax({
+    method: "GET",
+    url: "/api/" + setId
+  }).done(function(data) {
+    console.log("DATA AFTER GET: ");
+      $("#modal1").modal('open');
+      // var allCards = {flashMe: data};
+      console.log("WHAT'S UP: " + data.Flashcards[0].question);
+
+      var i = 0;
+      // var flashCard = allCards;
+      // console.log("FLASHCARD VARIABLE" + flashCard);
+
+      $("#modal-question").html("<h2 style='text-align:center; color: #08bff7' >" + data.Flashcards[i].question + "</h2>");
+      $("#modal-answer").html( "<h2 style='text-align:center; color: #08bff7' >" + data.Flashcards[i].answer + "</h2>").hide();
+
+      $("#nextBtn").on("click", function() {
+        i++;
+        $("#modal-question").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].question + "</h2>");
+        $("#modal-answer").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].answer + "</h2>").hide();
+      });
+
+      $("#prevBtn").on("click", function() {
+        i--;
+        $("#modal-question").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].question + "</h2>");
+        $("#modal-answer").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].answer + "</h2>").hide();
+      });
+
+      $("#flipBtn").on("click", function() {
+        $("#modal-answer").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].answer + "</h2>").show();
+      });
+
+
+    });
+
+    
+  
+
+  });
+
+
+
+</script>

@@ -1,0 +1,167 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+
+    <div class="the_crumbs">
+      <div class="col s12">
+        <a href="/" class="breadcrumb">Home</a>
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        <a href="/create" class="breadcrumb">Create Flashcards</a>
+        <a style="margin-left: 100px" href="/logout">Logout</a>
+      </div>
+    </div>
+
+    <div id="create-flashcards" >
+        <h5>Create a Set of Flashcards!</h5>
+          <!--form-->
+        <form class="col s12" action="/create" method="POST" role="form">
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Flashcards Title" name="flashcards_title" id="flashcards_title" type="text" class="validate form-control">
+              </div>
+            </div>
+
+            <div class="row">
+              <h6>Category</h6>
+              <div id="categories" class="col s12 form-group">
+                  <p>
+                    <input name="category" type="radio" value="Biology" id="Biology" />
+                    <label for="Biology">Biology</label>
+                  </p>
+                  <p>
+                    <input name="category" type="radio" value="Civics" id="Civics" />
+                    <label for="Civics">Civics</label>
+                  </p>
+                  <p>
+                    <input name="category" type="radio" value="Literature" id="Literature"/>
+                    <label for="Literature">Literature</label>
+                  </p>
+                  <p>
+                    <input name="category" type="radio" value="Programming" id="Programming"/>
+                    <label for="Programming">Programming</label>
+                  </p>
+                  <p>
+                    <input name="category" type="radio" value="History" id="History" />
+                    <label for="History">History</label>
+                  </p>
+                  <p>
+                    <input name="category" type="radio" value="Math" id="Math" />
+                    <label for="Math">Math</label>
+                  </p>
+              </div>
+            </div>
+
+
+          <div class="row card-group">
+            <div class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea name="q1" id="q1" class="materialize-textarea question" data-length="1000"></textarea>
+                  <label for="q1">Question</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea name="a1" id="a1" class="materialize-textarea answer" data-length="1000"></textarea>
+                  <label for="a1">Answer</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row card-group">
+            <div class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea name="q2" id="q2" class="materialize-textarea question" data-length="1000"></textarea>
+                  <label for="q2">Question</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea name="a2" id="a2" class="materialize-textarea answer" data-length="1000"></textarea>
+                  <label for="a2">Answer</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row card-group">
+            <div class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea name="q3" id="q3" class="materialize-textarea question" data-length="1000"></textarea>
+                  <label for="q3">Question</label>
+                </div>
+                <div class="input-field col s12">
+                  <textarea name="a3" id="a3" class="materialize-textarea answer" data-length="1000"></textarea>
+                  <label for="a3">Answer</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="btn" type="submit" id="submit">Create</button>
+            </div>
+          </div>
+        </form> <!--end form-->
+
+    </div> <!-- end Create Flashcards -->
+
+  </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="js/init.js"></script>
+
+<script type="text/javascript">
+//capture the form inputs
+// $("#submit").on("click", function(event) {
+// 		console.log("in submit on create.handlebars");
+//     console.log("category: ", $("#category").val());
+//     console.log("q1: ", $("#q1").val());
+//     console.log("a1: ", $("#a1").val());
+//     console.log("q2: ", $("#q2").val());
+//     console.log("a2: ", $("#a2").val());
+//     console.log("q3: ", $("#q3").val());
+//     console.log("a3: ", $("#a3").val());
+
+    // Form validation
+    // function validateForm() {
+    //   var isValid = [];
+    //   $(".question").each(function(){
+    //     if ($(this).val() === ""){
+    //       isValid = false;
+    //     }
+    //     else {
+    //       isValid = true;
+    //     }
+    //   });
+    //   return isValid;
+    // }
+    //
+    // var valid = validateForm();
+
+    // if user entered a valid flashcard,
+    // then create objects for the data
+    // for (var i = 1; i < 11; i++){
+    //   if (valid[i] === true)
+    //   {
+    //     var setsData = {
+    //       title: $("#flashcards_title").val(),
+    //       url: "",
+    //       CategoryId: $("#category").val(),
+    //       UserId: ""
+    //     }
+    //     var flashcardData = {
+    //       flash_num: i,
+    //       question: $("#q" + i).val(),
+    //       answer: $("#a" + i).val()
+    //     }
+    //   }
+    //   console.log("setsData: ", setsData);
+    //   console.log("flashcardData: ", flashcardData);
+    //}
+//});
+
+
+</script>

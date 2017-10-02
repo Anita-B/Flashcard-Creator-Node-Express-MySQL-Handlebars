@@ -1,0 +1,12 @@
+{{#each cats.dataValues}}
+          {{#if cat_name}}
+            {{#each this.Sets}}
+             <div class="section col s12 m4">
+                <div href="#play-flashcards" class="modal-trigger card-panel teal">
+                    <span class="white-text" id="whatever" value="whatever"> {{ title }}</span>
+                    <span class="white-text"><p>Created by <a href="#">(User Name)</a></p></span>
+                </div>
+            </div>
+            {{/each}}
+          {{/if}}
+        {{/each}}

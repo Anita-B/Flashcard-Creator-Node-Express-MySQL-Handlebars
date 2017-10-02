@@ -1,0 +1,229 @@
+/* Custom Stylesheet */
+/**
+ *
+ * border: 1px solid #f90606;
+ * border: 1px solid #08bff7;
+ */
+
+/*********** from materialize **********/
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+
+/*********** general **********/
+body {
+  /*background-color: #262836;*/
+}
+h4, h5, h6 {
+  color: #08bff7;
+}
+h5 {
+  text-align: left;
+  padding:left: 15px;
+}
+.fa {
+  color: #08bff7;
+}
+.row {
+  margin: 15px 0 50px 0;
+  padding: .9rem .75rem;
+}
+nav {
+  background-color: #f90606; /*#d50000;*/
+  box-shadow: 0 2px 2px 0 rgba(8,191,247,0.3), 0 1px 5px 0 rgba(8,191,247,0.12), 0 3px 1px -2px rgba(8,191,247,0.2);
+}
+.container-fluid {
+  background-color: #f90606;
+}
+.the_crumbs {
+  padding: 0;
+  float: right;
+}
+.the_crumbs .col {
+  padding: 0 15px 0 0;
+}
+.breadcrumb {
+  font-size: 15px;
+  color: #f90606;
+  /*color: rgba(249, 6, 6, .1);*/
+  /*color: rgba(255,255,255,0.7);*/
+}
+.fa-chevron-right {
+  margin-left: 20px;
+}
+.breadcrumb:last-child {
+  color: #f90606;
+  margin: 0;
+  /*color: rgba(249, 6, 6, .2);*/
+}
+.breadcrumb:before {
+  margin:0;
+}
+
+/*********** cards **********/
+.card-panel {
+  border-radius: 0;
+  box-shadow: none;
+}
+.card-panel:hover, .card-panel:active, .card-panel:focus {
+  box-shadow: 0px 2px 2px 0 rgba(8,191,247,0.3), 0 1px 5px 0 rgba(8,191,247,0.12), 0 3px 1px -2px rgba(8,191,247,0.2);
+}
+.card-group {
+  border: 2px solid #08bff7;
+  background-color: rgba(249, 6, 6, .06);
+  margin-bottom: 30px;
+}
+
+
+ /*********** modal **********/
+.modal-row {
+  margin: 0;
+  padding: 0;
+}
+.modal-content h4 {
+    color: #08bff7;
+    margin-bottom: 1rem;
+}
+.modal-content h5 {
+    color: #08bff7;
+}
+.fa-facebook-square {
+  color: #3b5998;
+}
+.fa-twitter-square {
+  color: #0084b4;
+}
+.fa-google-plus-square {
+  color: #d34836;
+}
+.col {
+  padding: .9rem .75rem;
+}
+.btn, .btn-large {
+  border-radius: 0;
+  text-decoration: none;
+  color: #fff;
+  background-color: #08bff7;
+  box-shadow: none;
+}
+.btn:hover, .btn:active, .btn:focus, .btn-large:hover, .btn-large:active, .btn-large:focus {
+  text-decoration: none;
+  color: #fff;
+  background-color: #08bff7;
+  box-shadow: 0 2px 2px 0 rgba(8,191,247,0.3), 0 1px 5px 0 rgba(8,191,247,0.12), 0 3px 1px -2px rgba(8,191,247,0.2);
+}
+.view-card {
+  border-bottom: 2px solid #f90606;
+  background-color: ;
+}
+.content-card {
+  min-height: 170px;
+  border-top: 2px solid #f90606;
+  border-bottom: 2px solid #08bff7;
+}
+.controls-card {
+  /*border-top: 2px solid #08bff7;*/
+}
+.view-card-option {
+  text-align: center;
+}
+.input-field {
+  margin-top: 0;
+}
+.flip {
+  text-align: center;
+  margin-top: 15px;
+}
+.flip .btn {
+  background-color: #f90606;
+}
+.previous {
+  text-align: right;
+  margin-top: 15px;
+}
+.previous .btn {
+  background-color: #f90606;
+}
+.next {
+  text-align: left;
+  margin-top: 15px;
+}
+.next .btn {
+  background-color: #f90606;
+}
+.share-card {
+  margin-top: 30px;
+}
+
+.divider {
+  height: 1px;
+  overflow: hidden;
+  background-color: #08bff7;
+}
+
+/*********** input fields turn to blue from teal **********/
+/* label focus color */
+.input-field input:focus + label {
+  color: #08bff7 !important;
+}
+/* label underline focus color */
+.row .input-field input:focus {
+   border-bottom: 1px solid #08bff7 !important;
+   box-shadow: 0 1px 0 0 #08bff7 !important
+}
+input:not([type]):hover, input:not([type]):active, input:not([type]):focus, input[type=text]:not(.browser-default):hover, input[type=text]:not(.browser-default):active, input[type=text]:not(.browser-default):focus {
+  border-bottom: 1px solid #08bff7;
+}
+/* text area focus color */
+.input-field textarea:focus + label {
+  color: #08bff7 !important;
+}
+.row .input-field textarea:focus {
+  border-bottom: 1px solid #08bff7 !important;
+  box-shadow: 0 1px 0 0 #08bff7 !important
+}
+
+
+/*********** form **********/
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+
+form p {
+   color: #08bff7;
+}
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+    background-color: #08bff7;
+}
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+    border: 2px solid #08bff7;
+}
+form .row {
+  margin-bottom: 0px;
+}
+/*********** responsiveness **********/
+/* iPhone 5 and 5s */
+ @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 568px)
+   and (-webkit-min-device-pixel-ratio: 2) {
+     nav .button-collapse {
+        position: absolute;
+        z-index: 1;
+        margin: 0;
+      }
+     .fa-bars {
+       position: absolute;
+     }
+     .find-flashcards {
+        margin-top: 50px;
+     }
+
+ }

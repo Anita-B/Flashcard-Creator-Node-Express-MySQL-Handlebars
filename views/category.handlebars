@@ -1,0 +1,138 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+
+     <div class="the_crumbs">
+        <div class="col s12">
+          <a href="/" class="breadcrumb">Home</a>
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          <a href="/category/{{this.category}}" class="breadcrumb">Category</a>
+        </div>
+      </div>
+
+
+     <div id="category-flashcards">
+
+       <div class="divider"></div>
+
+
+          <h5>{{ this.category }} - Sets</h5>
+
+        <br >
+    
+
+       <div class="row">
+
+       
+       {{#each catSets}}
+          
+            {{#each this.Sets}}
+             <div class="section col s12 m4">
+                <div id="{{id}}" href="#{{this.id}}" data-target="#{{this.id}}" class="modal-trigger card-panel teal">
+                    <span class="white-text"> {{ this.title }}</span>
+                    <span class="white-text"><p>Created by <a href="#">(User Name)</a></p></span>
+                </div>
+            </div>
+
+          <!-- Modal Flashcard Deck Structure -->
+          <div id="modal1" class="modal">
+            <div id="{{this.id}}" class="modal-content">
+
+             <h5>Flashcard Title</h5>
+              <p>Author</p>
+
+             <div class="row modal-row content-card">
+                <p id="modal-question"></p>
+                <p id="modal-answer"></p>
+                <!-- front / back / both sides of card appear here -->
+              </div>
+
+             <div class="row modal-row controls-card">
+                <div id="prevBtn" class="col s4 previous"><a href="#" value="previous-card" class="btn">PREVIOUS</a></div>
+                <div id="flipBtn" class="col s4 flip"><a href="#" value="flip-card" class="btn">FLIP</a></div>
+                <div id="nextBtn" class="col s4 next"><a href="#" value="next-card" class="btn">NEXT</a></div>
+              </div>
+
+             <div class="row modal-row share-card">
+                <button id="shareBtn" class="col s12 btn" type="submit" value="share-card" name="share-card">Share Flashcards</button>
+                <!-- <a href="#" value="share-card" class="waves-effect waves-light btn">Share Flashcards!</a> -->
+              </div>
+
+           </div> <!-- end modal content -->
+          </div> <!-- end play-flashcards modal -->
+
+
+
+
+            {{/each}}
+        
+        {{/each}}
+        
+
+
+       </div> <!-- end row -->
+      </div> <!-- end category Flashcards -->
+
+ </div>
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+<script src="/js/init.js"></script>
+
+<script type="text/javascript">
+
+
+ 
+  
+
+
+$(document).on("click", ".modal-trigger", function() {
+
+  var setId = $(this).attr("id");
+
+  $.ajax({
+    method: "GET",
+    url: "/category/{{this.category}}/" + setId
+  }).done(function(data) {
+    console.log("DATA AFTER GET: ");
+      $("#modal1").modal('open');
+      // var allCards = {flashMe: data};
+      console.log("WHAT'S UP: " + data.Flashcards[0].question);
+
+      var i = 0;
+      // var flashCard = allCards;
+      // console.log("FLASHCARD VARIABLE" + flashCard);
+
+      $("#modal-question").html("<h2 style='text-align:center; color: #08bff7' >" + data.Flashcards[i].question + "</h2>");
+      $("#modal-answer").html( "<h2 style='text-align:center; color: #08bff7' >" + data.Flashcards[i].answer + "</h2>").hide();
+
+      $("#nextBtn").on("click", function() {
+        i++;
+        $("#modal-question").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].question + "</h2>");
+        $("#modal-answer").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].answer + "</h2>").hide();
+      });
+
+      $("#prevBtn").on("click", function() {
+        i--;
+        $("#modal-question").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].question + "</h2>");
+        $("#modal-answer").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].answer + "</h2>").hide();
+      });
+
+      $("#flipBtn").on("click", function() {
+        $("#modal-answer").html("<h2 style='text-align:center; color: #08bff7'>" + data.Flashcards[i].answer + "</h2>").show();
+      });
+
+
+    });
+
+    
+  
+
+  });
+
+
+
+</script>
+
+
